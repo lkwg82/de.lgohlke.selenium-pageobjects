@@ -31,7 +31,7 @@ public class PageFactoryHelperIT {
     @Rule
     public       TemporaryFolder        temporaryFolder        = new TemporaryFolder();
     @Rule
-    public       HttpServerFromResource httpServerFromResource = new HttpServerFromResource("/testdata");
+    public       HttpServerFromResource httpServerFromResource = new HttpServerFromResource("/");
 
     private WebDriver         driver;
     private PageFactoryHelper pageFactoryHelper;
