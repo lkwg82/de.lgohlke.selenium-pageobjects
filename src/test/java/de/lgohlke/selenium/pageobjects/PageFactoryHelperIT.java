@@ -1,6 +1,6 @@
 package de.lgohlke.selenium.pageobjects;
 
-import de.lgohlke.junit.DriverService;
+import de.lgohlke.selenium.webdriver.junit.DriverService;
 import de.lgohlke.junit.HttpServerFromResource;
 import de.lgohlke.selenium.webdriver.DriverType;
 import lombok.Getter;
