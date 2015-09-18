@@ -4,7 +4,7 @@
 
     <groupId>de.lgohlke.selenium</groupId>
     <artifactId>pageobjects</artifactId>
-    <version>0.3</version>
+    <version>0.4-SNAPSHOT</version>
 
     <name>PageObject library</name>
     <description>an implementation of the page object pattern</description>
@@ -22,7 +22,7 @@
         <connection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</connection>
         <developerConnection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</developerConnection>
         <url>git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</url>
-        <tag>pageobjects-0.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
