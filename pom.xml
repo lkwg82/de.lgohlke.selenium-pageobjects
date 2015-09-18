@@ -8,11 +8,8 @@
     <artifactId>pageobjects</artifactId>
     <version>0.1-SNAPSHOT</version>
 
-    <ciManagement>
-        <system>travis ci</system>
-        <url>https://travis-ci.org/lkwg82/de.lgohlke.selenium-pageobjects</url>
-    </ciManagement>
-
+    <name>PageObject library</name>
+    <description>an implementation of the page object pattern</description>
     <inceptionYear>2015</inceptionYear>
     <url>https://github.com/lkwg82/de.lgohlke.selenium-pageobjects</url>
 
@@ -22,6 +19,13 @@
             <name>GNU GENERAL PUBLIC LICENSE</name>
         </license>
     </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</connection>
+        <developerConnection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</developerConnection>
+        <url>git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <developers>
         <developer>
@@ -69,7 +73,7 @@
                         <rule>GAVOrder</rule>
                         <rule>DuplicateDep</rule>
                         <rule>OSSDevelopersSectionRule</rule>
-                        <rule>OSSContinuousIntegrationManagementSectionRule</rule>
+                        <!--<rule>OSSContinuousIntegrationManagementSectionRule</rule>-->
                         <rule>OSSInceptionYearRule</rule>
                         <rule>OSSIssueManagementSectionRule</rule>
                         <rule>OSSLicenseSectionRule</rule>
@@ -266,6 +270,7 @@
         </dependency>
     </dependencies>
 
+
     <profiles>
         <profile>
             <id>sonar-coverage</id>
@@ -353,6 +358,31 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>2.5</version>
+                        <configuration>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <useReleaseProfile>false</useReleaseProfile>
+                            <releaseProfiles>release</releaseProfiles>
+                            <preparationGoals>deploy</preparationGoals>
+                            <pushChanges>true</pushChanges>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.6</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
