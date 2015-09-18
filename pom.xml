@@ -366,8 +366,8 @@
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <useReleaseProfile>false</useReleaseProfile>
                             <releaseProfiles>release</releaseProfiles>
-                            <!--<preparationGoals>deploy</preparationGoals>-->
-                            <pushChanges>false</pushChanges>
+                            <preparationGoals>deploy</preparationGoals>
+                            <pushChanges>true</pushChanges>
                         </configuration>
                     </plugin>
 
@@ -379,7 +379,7 @@
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
                 </plugins>
