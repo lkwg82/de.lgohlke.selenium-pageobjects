@@ -1,5 +1,7 @@
 ![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.lgohlke.selenium/pageobjects/badge.svg)
 
+Note: it is similiar to https://github.com/webdriverextensions/webdriverextensions, but offers a lifecycle for all webcomponents
+
 as maven `dependency`
 
 ```xml
