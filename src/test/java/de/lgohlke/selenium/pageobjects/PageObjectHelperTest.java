@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-import static org.assertj.core.api.StrictAssertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.spy;
 
 public class PageObjectHelperTest {

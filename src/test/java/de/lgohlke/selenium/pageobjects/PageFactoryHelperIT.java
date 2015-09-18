@@ -5,7 +5,6 @@ import de.lgohlke.junit.HttpServerFromResource;
 import de.lgohlke.selenium.webdriver.DriverType;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.StrictAssertions;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,6 +18,7 @@ import org.openqa.selenium.support.How;
 
 import java.io.IOException;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
@@ -53,7 +53,7 @@ public class PageFactoryHelperIT {
 
         LoginPage page = pageFactoryHelper.initElements(LoginPage.class);
 
-        StrictAssertions.assertThat(page.credentials()).isEqualTo("login password");
+        assertThat(page.credentials()).isEqualTo("login password");
     }
 
     @Test
@@ -62,7 +62,7 @@ public class PageFactoryHelperIT {
 
         LoginPage page = pageFactoryHelper.initElements(LoginPage.class);
 
-        StrictAssertions.assertThat(page.isInitialized()).isTrue();
+        assertThat(page.isInitialized()).isTrue();
     }
 
     @Test
@@ -71,7 +71,7 @@ public class PageFactoryHelperIT {
 
         ParentPage page = pageFactoryHelper.initElements(ParentPage.class);
 
-        StrictAssertions.assertThat(page.getTimestamp()).isGreaterThan(page.getMenu().getTimestamp());
+        assertThat(page.getTimestamp()).isGreaterThan(page.getMenu().getTimestamp());
     }
 
     @Test
@@ -80,8 +80,8 @@ public class PageFactoryHelperIT {
 
         LoginPage page = pageFactoryHelper.initElements(LoginPage.class);
 
-        StrictAssertions.assertThat(page.getMenu()).isNotNull();
-        StrictAssertions.assertThat(page.getMenu().getMenuText()).isEqualTo("menu");
+        assertThat(page.getMenu()).isNotNull();
+        assertThat(page.getMenu().getMenuText()).isEqualTo("menu");
     }
 
     @Test(expected = NoSuchElementException.class)
@@ -103,7 +103,7 @@ public class PageFactoryHelperIT {
         driver.get(url("PageFactoryHelperTest.html"));
         ParentPage page = pageFactoryHelper.initElements(ParentPage.class, true);
 
-        StrictAssertions.assertThat(page.getMenu()).isNull();
+        assertThat(page.getMenu()).isNull();
     }
 
     @Test
