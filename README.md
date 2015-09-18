@@ -1,3 +1,4 @@
+![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.lgohlke.selenium/pageobjects/badge.svg)
 
 as maven `dependency`
 
