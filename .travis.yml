@@ -1,15 +1,12 @@
 language: java
 jdk:
   - oraclejdk8
+  
+sudo: required
 
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y libappindicator1
-  - wget  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome-stable_current_amd64.deb
+services:
+  - docker
 
-before_script:
-    - "export DISPLAY=:20.0"
-    - "sh -e /etc/init.d/xvfb start"
-
-script: mvn clean verify
+script:
+  - docker docker run -ti lkwg82/selenium -v $(pwd):/ mvn verify
+  
