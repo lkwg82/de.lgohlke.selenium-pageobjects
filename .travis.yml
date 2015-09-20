@@ -8,5 +8,5 @@ services:
   - docker
 
 script:
-  - docker docker run -ti lkwg82/selenium -v $(pwd):/ mvn verify
+  - docker run -ti lkwg82/selenium -v $(pwd):/ mvn verify
   
