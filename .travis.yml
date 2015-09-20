@@ -4,5 +4,6 @@ services:
   - docker
 
 script:
-  - docker run -ti lkwg82/selenium -v $(pwd):/ mvn verify
-  
+  - docker build -t test .
+  - docker run -ti test mvn verify
+
