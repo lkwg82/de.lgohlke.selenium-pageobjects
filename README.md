@@ -1,4 +1,5 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.lgohlke.selenium/pageobjects/badge.svg?style=flat-square)](https://search.maven.org/#search%7Cga%7C1%7Cg%3Ade.lgohlke.selenium)
+[![travisci](https://travis-ci.org/lkwg82/de.lgohlke.selenium-pageobjects.svg)](https://travis-ci.org/lkwg82/de.lgohlke.selenium-pageobjects)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.lgohlke.selenium/pageobjects/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3Ade.lgohlke.selenium)
 
 Note: it is similiar to https://github.com/webdriverextensions/webdriverextensions, but offers a lifecycle for all webcomponents
 
