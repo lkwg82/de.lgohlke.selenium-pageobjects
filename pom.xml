@@ -62,8 +62,6 @@
 
         <drivers.installation.directory>/tmp/webdrivers</drivers.installation.directory>
         <phantomjsdriver.version>1.2.0</phantomjsdriver.version>
-        <xvfb.display>20</xvfb.display>
-        <xvfb.skip>false</xvfb.skip>
     </properties>
 
     <prerequisites>
@@ -134,43 +132,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <id>start-xvfb</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <echo message="Starting xvfb ..." />
-                                <exec executable="Xvfb" spawn="true">
-                                    <arg value=":${xvfb.display}.0" />
-                                </exec>
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>shutdown-xvfb</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <echo message="Ending xvfb ..." />
-                                <exec executable="killall">
-                                    <arg value="Xvfb" />
-                                </exec>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -203,7 +164,6 @@
                         <include>**/*IT.java</include>
                     </includes>
                     <environmentVariables>
-                        <DISPLAY>:${xvfb.display}</DISPLAY>
                         <DRIVERS_PATH>${drivers.installation.directory}</DRIVERS_PATH>
                     </environmentVariables>
                 </configuration>
