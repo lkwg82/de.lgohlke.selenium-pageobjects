@@ -108,10 +108,6 @@
                 <configuration>
                     <drivers>
                         <driver>
-                            <name>chromedriver</name>
-                            <platform>linux</platform>
-                        </driver>
-                        <driver>
                             <name>phantomjs</name>
                             <platform>linux</platform>
                             <version>1.9.7</version>
