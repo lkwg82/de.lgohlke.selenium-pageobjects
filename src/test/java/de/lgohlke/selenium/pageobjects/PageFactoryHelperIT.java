@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 @Slf4j
 public class PageFactoryHelperIT {
     @Rule
-    public final DriverService          driverService          = new DriverService(DriverType.CHROME);
+    public final DriverService          driverService          = new DriverService(DriverType.PHANTOMJS);
     @Rule
     public       TemporaryFolder        temporaryFolder        = new TemporaryFolder();
     @Rule
@@ -143,7 +143,7 @@ public class PageFactoryHelperIT {
 
         @Override
         public String getLocation() {
-            return "file:///";
+            return "http://www.google.de/";
         }
     }
 
