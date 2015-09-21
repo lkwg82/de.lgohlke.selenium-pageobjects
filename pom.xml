@@ -342,7 +342,6 @@
                             <useReleaseProfile>false</useReleaseProfile>
                             <releaseProfiles>release</releaseProfiles>
                             <pushChanges>true</pushChanges>
-                            <goals>deploy</goals>
                         </configuration>
                     </plugin>
 
