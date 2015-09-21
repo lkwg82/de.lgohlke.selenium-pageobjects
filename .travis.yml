@@ -4,6 +4,5 @@ services:
   - docker
 
 script:
-  - docker build -t test .
-  - docker run -ti test mvn verify
+  - ./run_tests.sh
 

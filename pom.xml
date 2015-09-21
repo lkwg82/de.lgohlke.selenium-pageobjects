@@ -140,27 +140,37 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>selenium-maven-plugin</artifactId>
-                <version>2.3</version>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
                 <executions>
                     <execution>
-                        <id>start</id>
+                        <id>start-xvfb</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>xvfb</goal>
+                            <goal>run</goal>
                         </goals>
                         <configuration>
-                            <skip>${xvfb.skip}</skip>
-                            <background>true</background>
-                            <display>:${xvfb.display}</display>
-                            <options>
-                                <option>-listen</option>
-                                <option>tcp</option>
-                                <option>-port</option>
-                                <option>60${xvfb.display}</option>
-                            </options>
-                            <reuse>true</reuse>
+                            <target>
+                                <echo message="Starting xvfb ..." />
+                                <exec executable="Xvfb" spawn="true">
+                                    <arg value=":${xvfb.display}.0" />
+                                </exec>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>shutdown-xvfb</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <echo message="Ending xvfb ..." />
+                                <exec executable="killall">
+                                    <arg value="Xvfb" />
+                                </exec>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
@@ -282,27 +292,15 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>releases</id>
-            <name>sonatype</name>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>releases</id>-->
+            <!--<name>sonatype</name>-->
+            <!--<url>https://oss.sonatype.org/content/repositories/releases/</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
     <profiles>
-        <profile>
-            <id>travis xvfb skip</id>
-            <activation>
-                <property>
-                    <name>env.TRAVIS</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <properties>
-                <xvfb.skip>true</xvfb.skip>
-            </properties>
-        </profile>
         <profile>
             <id>sonar-coverage</id>
             <build>
