@@ -12,6 +12,11 @@
     <inceptionYear>2015</inceptionYear>
     <url>https://github.com/lkwg82/de.lgohlke.selenium-pageobjects</url>
 
+    <ciManagement>
+        <system>travis ci</system>
+        <url>https://travis-ci.org/lkwg82/de.lgohlke.selenium-pageobjects</url>
+    </ciManagement>
+
     <licenses>
         <license>
             <url>https://github.com/lkwg82/de.lgohlke.selenium-pageobjects/blob/master/LICENSE</url>
@@ -70,35 +75,35 @@
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>com.lewisd</groupId>-->
-                <!--<artifactId>lint-maven-plugin</artifactId>-->
-                <!--<version>0.0.9</version>-->
-                <!--<configuration>-->
-                    <!--<onlyRunRules>-->
-                        <!--<rule>ExecutionId</rule>-->
-                        <!--<rule>RedundantPluginVersion</rule>-->
-                        <!--<rule>RedundantDepVersion</rule>-->
-                        <!--<rule>GAVOrder</rule>-->
-                        <!--<rule>DuplicateDep</rule>-->
-                        <!--<rule>OSSDevelopersSectionRule</rule>-->
-                        <!--&lt;!&ndash;<rule>OSSContinuousIntegrationManagementSectionRule</rule>&ndash;&gt;-->
-                        <!--<rule>OSSInceptionYearRule</rule>-->
-                        <!--<rule>OSSIssueManagementSectionRule</rule>-->
-                        <!--<rule>OSSLicenseSectionRule</rule>-->
-                        <!--<rule>OSSUrlSectionRule</rule>-->
-                    <!--</onlyRunRules>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>pom-lint</id>-->
-                        <!--<phase>validate</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>check</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>com.lewisd</groupId>
+                <artifactId>lint-maven-plugin</artifactId>
+                <version>0.0.10</version>
+                <configuration>
+                    <onlyRunRules>
+                        <rule>ExecutionId</rule>
+                        <rule>RedundantPluginVersion</rule>
+                        <rule>RedundantDepVersion</rule>
+                        <rule>GAVOrder</rule>
+                        <rule>DuplicateDep</rule>
+                        <rule>OSSDevelopersSectionRule</rule>
+                        <rule>OSSContinuousIntegrationManagementSectionRule</rule>
+                        <rule>OSSInceptionYearRule</rule>
+                        <rule>OSSIssueManagementSectionRule</rule>
+                        <rule>OSSLicenseSectionRule</rule>
+                        <rule>OSSUrlSectionRule</rule>
+                    </onlyRunRules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>pom-lint</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>com.github.webdriverextensions</groupId>
                 <artifactId>webdriverextensions-maven-plugin</artifactId>
