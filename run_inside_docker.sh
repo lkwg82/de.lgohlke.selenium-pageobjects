@@ -2,4 +2,4 @@
 
 set -e
 
-mvn clean verify
+mvn -e -X clean verify
