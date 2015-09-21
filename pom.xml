@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.lgohlke.selenium</groupId>
     <artifactId>pageobjects</artifactId>
-    <version>0.4-SNAPSHOT</version>
+    <version>0.4</version>
 
     <name>PageObject library</name>
     <description>an implementation of the page object pattern</description>
@@ -28,7 +27,7 @@
         <connection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</connection>
         <developerConnection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</developerConnection>
         <url>git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</url>
-        <tag>HEAD</tag>
+        <tag>pageobjects-0.4</tag>
     </scm>
 
     <developers>
