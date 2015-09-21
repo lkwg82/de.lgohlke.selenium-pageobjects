@@ -10,7 +10,7 @@ as maven `dependency`
 <dependency>
     <groupId>de.lgohlke.selenium</groupId>
     <artifactId>pageobjects</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
 </dependency>
 
 ```
