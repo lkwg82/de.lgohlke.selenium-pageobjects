@@ -41,7 +41,7 @@ public abstract class AbstractPageObject implements PageObject {
     }
 
     @SuppressWarnings("unchecked")
-    private void propagateToEventlisteners(WebDriver driver, Exception e1) {
+    private static void propagateToEventlisteners(WebDriver driver, Exception exception){
         if (driver instanceof EventFiringWebDriver) {
             try {
                 Field field = EventFiringWebDriver.class.getDeclaredField("eventListeners");
@@ -49,13 +49,15 @@ public abstract class AbstractPageObject implements PageObject {
                 field.setAccessible(true);
                 try {
                     List<WebDriverEventListener> eventListeners = (List<WebDriverEventListener>) field.get(driver);
-                    eventListeners.forEach(listener -> listener.onException(e1, driver));
+                    eventListeners.forEach(listener -> listener.onException(exception, driver));
                 } finally {
                     field.setAccessible(accessible);
                 }
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 log.error(e.getMessage(), e);
             }
+        }else{
+            throw new IllegalStateException(exception);
         }
     }
 }
