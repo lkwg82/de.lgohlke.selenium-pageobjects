@@ -1,14 +1,16 @@
 package de.lgohlke.selenium.pageobjects;
 
-import de.lgohlke.selenium.webdriver.junit.DriverService;
+import com.googlecode.junittoolbox.ParallelRunner;
 import de.lgohlke.junit.HttpServerFromResource;
 import de.lgohlke.selenium.webdriver.DriverType;
+import de.lgohlke.selenium.webdriver.junit.DriverService;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +26,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
+@RunWith(ParallelRunner.class)
 @Slf4j
 public class PageFactoryHelperIT {
     @Rule
@@ -44,12 +47,12 @@ public class PageFactoryHelperIT {
     }
 
     private String url(String path) {
-        return "http://localhost:" + httpServerFromResource.getPort() + "/" + path;
+        return "http://localhost:" + httpServerFromResource.getPort() + path;
     }
 
     @Test
     public void testFindingValidateAnnotations() {
-        driver.get(url("PageFactoryHelperTest.html"));
+        driver.get(url("/PageFactoryHelperTest.html"));
 
         LoginPage page = pageFactoryHelper.initElements(LoginPage.class);
 
@@ -58,7 +61,7 @@ public class PageFactoryHelperIT {
 
     @Test
     public void testBeforeInit() {
-        driver.get(url("PageFactoryHelperTest.html"));
+        driver.get(url("/PageFactoryHelperTest.html"));
 
         LoginPage page = pageFactoryHelper.initElements(LoginPage.class);
 
@@ -67,7 +70,7 @@ public class PageFactoryHelperIT {
 
     @Test
     public void testOrderOfHierarchicalBeforeInit() {
-        driver.get(url("PageFactoryHelperTest.html"));
+        driver.get(url("/PageFactoryHelperTest.html"));
 
         ParentPage page = pageFactoryHelper.initElements(ParentPage.class);
 
@@ -76,7 +79,7 @@ public class PageFactoryHelperIT {
 
     @Test
     public void initFieldsWhichArePageObjects() {
-        driver.get(url("PageFactoryHelperTest.html"));
+        driver.get(url("/PageFactoryHelperTest.html"));
 
         LoginPage page = pageFactoryHelper.initElements(LoginPage.class);
 
@@ -86,7 +89,7 @@ public class PageFactoryHelperIT {
 
     @Test(expected = NoSuchElementException.class)
     public void testFindingValidateAnnotationsAndDetectErrors() {
-        driver.get(url("PageFactoryHelperTest.html"));
+        driver.get(url("/PageFactoryHelperTest.html"));
 
         pageFactoryHelper.initElements(LoginPageFail.class);
     }
@@ -100,7 +103,7 @@ public class PageFactoryHelperIT {
 
     @Test
     public void shouldFlatInitElements() {
-        driver.get(url("PageFactoryHelperTest.html"));
+        driver.get(url("/PageFactoryHelperTest.html"));
         ParentPage page = pageFactoryHelper.initElements(ParentPage.class, true);
 
         assertThat(page.getMenu()).isNull();
@@ -119,6 +122,28 @@ public class PageFactoryHelperIT {
         pageFactoryHelper.initElements(PageWithLocation.class);
 
         verify(driver, times(1)).get(any(String.class));
+    }
+
+    @Test
+    public void shouldOpenRelativeLocation() {
+        driver.get(url("/PageFactoryHelperTest.html"));
+        Mockito.reset(driver);
+
+        pageFactoryHelper.initElements(PageRelativeLocation.class);
+
+        String location = new PageRelativeLocation(driver).getLocation();
+        verify(driver, times(1)).get(url(location));
+    }
+
+    public static class PageRelativeLocation extends AbstractPageObject implements Page {
+        public PageRelativeLocation(WebDriver driver) {
+            super(driver);
+        }
+
+        @Override
+        public String getLocation() {
+            return "/index.html";
+        }
     }
 
     public static class PageNoLocation extends AbstractPageObject implements Page {

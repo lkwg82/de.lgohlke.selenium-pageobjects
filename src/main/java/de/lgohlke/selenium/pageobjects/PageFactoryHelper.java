@@ -11,7 +11,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
 import java.lang.reflect.Field;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,10 +92,40 @@ public class PageFactoryHelper {
     private static <T extends PageObject> void navigateToLocationIfPage(WebDriver driver, T pageObject) {
         if (pageObject instanceof Page) {
             String location = ((Page) pageObject).getLocation();
-            log.debug("current location of {} is {}",pageObject,driver.getCurrentUrl());
-            if (!location.isEmpty() && !driver.getCurrentUrl().equals(location)) {
-                log.debug("try to get needed location: {}",location);
-                driver.get(location);
+            boolean isUrl = location.toLowerCase().matches("^https?://.*");
+            boolean isAbsolute = !isUrl && location.startsWith("/");
+
+            String fullLocation;
+            if (isUrl) {
+                fullLocation = location;
+            } else {
+                URI uri;
+                try {
+                    uri = new URI(driver.getCurrentUrl());
+                } catch (URISyntaxException e) {
+                    throw new IllegalArgumentException(e);
+                }
+
+                if (!uri.toString().toLowerCase().matches("^https?://.*")) {
+                    fullLocation = location;
+                } else {
+                    String port = uri.getPort() == -1 ? "" : ":" + uri.getPort();
+                    String withoutPath = uri.getScheme() + "://" + uri.getHost() + port;
+                    if (isAbsolute) {
+                        fullLocation = withoutPath + location;
+                    } else {
+                        if (uri.getPath().endsWith("/")) {
+                            fullLocation = withoutPath + uri.getPath() + location;
+                        } else {
+                            fullLocation = withoutPath + new File(uri.getPath()).getParent() + "/" + location;
+                        }
+                    }
+                }
+            }
+            log.debug("current location of {} is {}", pageObject, driver.getCurrentUrl());
+            if (!fullLocation.isEmpty() && !driver.getCurrentUrl().equals(fullLocation)) {
+                log.debug("try to get needed location: {}", fullLocation);
+                driver.get(fullLocation);
             }
         }
     }
