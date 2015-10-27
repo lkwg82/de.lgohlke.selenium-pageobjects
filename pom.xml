@@ -5,7 +5,7 @@
 
     <groupId>de.lgohlke.selenium</groupId>
     <artifactId>pageobjects</artifactId>
-    <version>0.5-SNAPSHOT</version>
+    <version>20151027-SNAPSHOT</version>
 
     <name>PageObject library</name>
     <description>an implementation of the page object pattern</description>
