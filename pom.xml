@@ -69,7 +69,7 @@
     </properties>
 
     <prerequisites>
-        <maven>3.0.4</maven>
+        <maven>3.3.9</maven>
     </prerequisites>
 
     <build>
@@ -77,7 +77,7 @@
             <plugin>
                 <groupId>com.lewisd</groupId>
                 <artifactId>lint-maven-plugin</artifactId>
-                <version>0.0.10</version>
+                <version>0.0.11</version>
                 <configuration>
                     <onlyRunRules>
                         <rule>ExecutionId</rule>
@@ -106,7 +106,7 @@
             <plugin>
                 <groupId>com.github.webdriverextensions</groupId>
                 <artifactId>webdriverextensions-maven-plugin</artifactId>
-                <version>2.0.0</version>
+                <version>2.2.0</version>
                 <configuration>
                     <drivers>
                         <driver>
@@ -130,7 +130,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.5</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -139,7 +139,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>2.19</version>
                 <configuration>
                     <runOrder>random</runOrder>
                     <includes>
@@ -153,7 +153,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>2.19</version>
                 <executions>
                     <execution>
                         <id>test</id>
@@ -190,18 +190,25 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.2.0</version>
+            <version>3.4.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>de.lgohlke.selenium</groupId>
             <artifactId>webdriver</artifactId>
-            <version>0.3</version>
+            <version>20151215</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.6</version>
+            <version>1.16.8</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -238,14 +245,6 @@
         </dependency>
     </dependencies>
 
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>releases</id>-->
-    <!--<name>sonatype</name>-->
-    <!--<url>https://oss.sonatype.org/content/repositories/releases/</url>-->
-    <!--</repository>-->
-    <!--</repositories>-->
-
     <profiles>
         <profile>
             <id>sonar-coverage</id>
@@ -254,7 +253,7 @@
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>0.7.4.201502262128</version>
+                        <version>0.7.7.201606060606</version>
                         <configuration>
                             <append>true</append>
                         </configuration>
@@ -323,7 +322,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -338,7 +337,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
-                        <version>2.5</version>
+                        <version>2.5.3</version>
                         <configuration>
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <useReleaseProfile>false</useReleaseProfile>
