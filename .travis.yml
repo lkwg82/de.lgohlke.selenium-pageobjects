@@ -3,4 +3,5 @@ language: java
 jdk:
   - oraclejdk8
 
-script: mvn clean verify
+script: ./mvnw clean verify sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN
+secure: "08xI/Df7/MLb7t/DgG6/f0dRSlPrqG8R6KtJbuLX6pOUs/jQZ73i76mn1STUfXH7vweLwM650MZMUzswgncTP/vyChpZL7oYm7YKDc12LFRQcbT1z+KgzlqQTgeGxoSv+D+OWb+oC4gFuLsV/7+QjQQGCibkRiKkn2hlhDLW7iDBUVtsFTaOIWjKBUjfC+RoAW3hcVPZ9x0ECB8OjsW/aj97HIws9hr6PC75bVRSqQIBxZ9nvIv/jWvQqgQSdPL2AYh8LkLMYo5b/F+P24qOIEwu0jVOjEg5byGeNXoaBk7/af+xL/0c5hcZjma2ePHDyNImGQI7A2fsgx9yXKkDjCTCyD9KV6nvW8YqEjBYUW8Qbda3Xbu5McETtvKJQbE3+iI+7BOj747Log8LHdQmj2E4FIarSERSJbz1PkYlwt3SzTHqWyX1BiJWSlDUJGWYSPhfzhKpdaXNRUyoeEkYxLnn/PEkVstEAItOzfnDVcSIbs90ThgVc8NOs30IkHkoO9hIw5f8PVZOnJMYXbS9JMn4KU08PyzOdoL9sjD8Ia0BdwfLVPMts4wlKzgomVG3qRTtcBWVJKmLrqolyiIZkPEO/m1dIkJG2D//7XuNclTjPr9tpEQ2GT8CZp6zlk5juYE0A4tTp/nLPZxkcTk0Jkud4zsRA7FZhDK+1mrQxVA="
