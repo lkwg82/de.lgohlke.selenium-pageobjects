@@ -65,7 +65,6 @@
         <log4j.version>2.3</log4j.version>
 
         <drivers.installation.directory>/tmp/webdrivers</drivers.installation.directory>
-        <phantomjsdriver.version>1.2.0</phantomjsdriver.version>
     </properties>
 
     <prerequisites>
