@@ -1,6 +1,5 @@
 package de.lgohlke.selenium.pageobjects;
 
-import de.lgohlke.selenium.webdriver.SwallowWebdriverException;
 import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -11,7 +10,6 @@ import org.openqa.selenium.WebElement;
 public class PageObjectHelper {
     private final WebDriver driver;
 
-    @SwallowWebdriverException
     public boolean isPresent(WebElement element) {
         try {
             element.getSize();
