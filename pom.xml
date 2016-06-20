@@ -4,7 +4,7 @@
 
     <groupId>de.lgohlke.selenium</groupId>
     <artifactId>pageobjects</artifactId>
-    <version>20160621</version>
+    <version>20160622-SNAPSHOT</version>
 
     <name>PageObject library</name>
     <description>an implementation of the page object pattern</description>
@@ -27,7 +27,7 @@
         <connection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</connection>
         <developerConnection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</developerConnection>
         <url>git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</url>
-        <tag>pageobjects-20160621</tag>
+        <tag>pageobjects-20160620</tag>
     </scm>
 
     <developers>
@@ -287,24 +287,11 @@
             <properties>
                 <timestamp>${maven.build.timestamp}</timestamp>
                 <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
+                <releaseVersion>${maven.build.timestamp}</releaseVersion>
+                <developmentVersion>0.99-SNAPSHOT</developmentVersion>
             </properties>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>buildnumber-maven-plugin</artifactId>
-                        <version>1.4</version>
-                        <executions>
-                            <execution>
-                                <id>create-buildnumber</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>create</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -372,7 +359,7 @@
                         <configuration>
                             <serverId>ossrh</serverId>
                             <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
                 </plugins>
