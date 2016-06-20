@@ -4,4 +4,4 @@ jdk:
 
 env:
   secure: "N7hnkemyZ3ydYUJsugw13c92+UEdGE48Vqrdf1vJhz4DYnLPMEUrLC4rnowfG/zfRpJlOuVnq2eJB0DXO2K1qyp+DFe1upAQZ+nLoi1LSNyS8s2+5NtZGHTwFgbVZFXupm7iXhWPE9ZXE62eyKL9KsqJeQQKKiOihhOpg3HxaBvIMafsvX02Hpn04zR7NEaKgXi651nE5UpQFFkb76t5DQzWT5/JfAJ5AP2pao4hZO+GF6yqJyDClIxhXJ4bhvwYXrP/sS3YBbiYfP5vhCAuSeyiUJNitcsl1yvflFYTL5oBJR5N5hR/zJ+U+XwHRn/OVLZUT9xmPbDqHEaemC68pjEiP38Qa3rR6vL8GLX0uHtzCthE8ebqs2UzsEkeWfQrEJeVaChsfaXAwf2HpvPxL5DxMY+9YG35RH1FgrVQ+4JpDAzD7gaOWf6O6yCakKf6IgQR3DUbSRcGB6fEqS6gFdVqDyYgQgd6KmgUZHTgD89pjM2TfHWgRGvynpPKFfRg46JJBD7dHWFeO0AWC87t5tn9RMhV3D5yRIKRIRzjAOZGPK9rI12NRo+QrxSvHej8/p0t9mkFdL7HyNsmzpBDh+o4TnHjgizUSsrz5H8gf8xfPKA1pybbv+8X3oC4XCkAslmvYemdTymwhfYPDCJ1UBNrXppeYNOLkLlm/c7+oD0="
-script: "./mvnw clean install sonar:sonar -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN"
+script: "./mvnw clean install sonar:sonar -P sonar-coverage -Dsonar.host.url=https://sonarqube.com -Dsonar.login=$SONAR_TOKEN"
