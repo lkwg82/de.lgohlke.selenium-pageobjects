@@ -4,7 +4,7 @@
 
     <groupId>de.lgohlke.selenium</groupId>
     <artifactId>pageobjects</artifactId>
-    <version>20160622-SNAPSHOT</version>
+    <version>0.99-SNAPSHOT</version>
 
     <name>PageObject library</name>
     <description>an implementation of the page object pattern</description>
@@ -27,7 +27,6 @@
         <connection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</connection>
         <developerConnection>scm:git:git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</developerConnection>
         <url>git@github.com:lkwg82/de.lgohlke.selenium-pageobjects.git</url>
-        <tag>pageobjects-20160620</tag>
     </scm>
 
     <developers>
@@ -287,8 +286,10 @@
             <properties>
                 <timestamp>${maven.build.timestamp}</timestamp>
                 <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
-                <releaseVersion>${maven.build.timestamp}</releaseVersion>
+
                 <developmentVersion>0.99-SNAPSHOT</developmentVersion>
+                <releaseVersion>${maven.build.timestamp}</releaseVersion>
+                <tag>${maven.build.timestamp}</tag>
             </properties>
             <build>
                 <plugins>
@@ -347,7 +348,7 @@
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <useReleaseProfile>false</useReleaseProfile>
                             <releaseProfiles>release</releaseProfiles>
-                            <pushChanges>false</pushChanges>
+                            <pushChanges>true</pushChanges>
                         </configuration>
                     </plugin>
 
