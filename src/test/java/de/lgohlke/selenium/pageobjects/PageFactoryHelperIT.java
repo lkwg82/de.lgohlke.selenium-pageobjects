@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,17 +21,13 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 @RunWith(ParallelRunner.class)
 @Slf4j
 public class PageFactoryHelperIT {
     @Rule
     public final DriverService          driverService          = new DriverService(DriverType.PHANTOMJS);
-    @Rule
-    public       TemporaryFolder        temporaryFolder        = new TemporaryFolder();
     @Rule
     public       HttpServerFromResource httpServerFromResource = new HttpServerFromResource("/");
 
