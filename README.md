@@ -1,7 +1,7 @@
 [![travisci](https://travis-ci.org/lkwg82/de.lgohlke.selenium-pageobjects.svg)](https://travis-ci.org/lkwg82/de.lgohlke.selenium-pageobjects)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.lgohlke.selenium/pageobjects/badge.svg)](https://search.maven.org/#search%7Cga%7C1%7Cg%3Ade.lgohlke.selenium)
-[![SonarQube Coverage](https://img.shields.io/sonar/http/sonarqube.com/de.lgohlke.selenium:pageobjects/coverage.svg?maxAge=2592000)]()
-[![SonarQube Techdebt](https://img.shields.io/sonar/http/sonarqube.com/de.lgohlke.selenium:pageobjects/tech_debt.svg?maxAge=2592000)]()
+[![SonarQube Coverage](https://img.shields.io/sonar/http/sonarqube.com/de.lgohlke.selenium:pageobjects/coverage.svg?maxAge=2592000)](https://sonarqube.com/overview?id=de.lgohlke.selenium%3Apageobjects)
+[![SonarQube Techdebt](https://img.shields.io/sonar/http/sonarqube.com/de.lgohlke.selenium:pageobjects/tech_debt.svg?maxAge=2592000)](https://sonarqube.com/overview?id=de.lgohlke.selenium%3Apageobjects)
 
 Note: it is similiar to https://github.com/webdriverextensions/webdriverextensions, but offers a lifecycle for all webcomponents
 
