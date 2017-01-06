@@ -1,4 +1,5 @@
 node {
+   function mvn()
    stage('Preparation') {
       checkout scm
       sh "./mvnw --batch-mode package -DskipTests"
