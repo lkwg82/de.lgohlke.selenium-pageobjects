@@ -1,6 +1,6 @@
 node {
    stage('Preparation') {
-      git 'https://github.com/lkwg82/de.lgohlke.selenium-pageobjects'
+      checkout scm
       sh "./mvnw --batch-mode package -DskipTests"
    }
    stage('Build') {
