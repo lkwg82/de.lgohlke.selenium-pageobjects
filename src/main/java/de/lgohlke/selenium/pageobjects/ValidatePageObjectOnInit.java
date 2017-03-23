@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * marker interface used by {@link PageFactoryHelper}
+ * marker annotation used by {@link PageFactoryHelper}
  */
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
